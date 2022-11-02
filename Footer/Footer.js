@@ -2,11 +2,10 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Entypo from '@expo/vector-icons/Entypo';
-import HomeScreen from './Screen/HomeScreen';
-import CalendarScreen from './Screen/CalendarScreen';
-import LibraryScreen from './Screen/LibraryScreen';
-import MyPageScreen from './Screen/MyPageScreen';
+import HomeScreen from '../Screen/HomeScreen';
+import CalendarScreen from '../Screen/CalendarScreen';
+import LibraryScreen from '../Screen/LibraryScreen';
+import MyPageScreen from '../Screen/MyPageScreen';
 
 const home = 'HOME';
 const calendar = 'CALENDAR';
@@ -21,7 +20,7 @@ const footer = () => {
       <Tab.Navigator
         initialRouteName={home}
         screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused}) => {
+          tabBarIcon: ({ focused }) => {
             let icon;
             let rn = route.name;
 
@@ -38,16 +37,34 @@ const footer = () => {
           },
         })}
         tabBarOptions={{
+          headerShown: false,
           activeTintColor: 'black',
           inactiveTintColor: 'grey',
           labelStyle: { paddingBottom: 5, fontSize: 8 },
-          style: { padding: 5, height:50},
+          style: { padding: 5, height: 50 },
+          backgroundColor: 'white',
         }}
       >
-        <Tab.Screen name={home} component={HomeScreen} />
-        <Tab.Screen name={calendar} component={CalendarScreen} />
-        <Tab.Screen name={library} component={LibraryScreen} />
-        <Tab.Screen name={mypage} component={MyPageScreen} />
+        <Tab.Screen
+          name={home}
+          component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name={calendar}
+          component={CalendarScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name={library}
+          component={LibraryScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name={mypage}
+          component={MyPageScreen}
+          options={{ headerShown: false }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
